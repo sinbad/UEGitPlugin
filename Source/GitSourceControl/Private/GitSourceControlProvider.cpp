@@ -175,7 +175,8 @@ void FGitSourceControlProvider::CheckRepositoryStatus()
 		}
 	};
 
-	if (FApp::IsUnattended() || IsRunningCommandlet())
+	if (FApp::IsUnattended() || IsRunningCommandlet()
+		|| true) // HACK to prevent crash caused by startup race condition, see https://github.com/ProjectBorealis/UEGitPlugin/issues/51#issuecomment-1200437532
 	{
 		InitFunc();
 	}
